@@ -1,8 +1,7 @@
 Invoke-CradleCrafter v1.0
 ===============
 
-![Invoke-CradleCrafter Screenshot]
-(https://github.com/danielbohannon/danielbohannon.github.io/blob/master/Invoke-CradleCrafter%20Screenshot.png)
+![Invoke-CradleCrafter Screenshot](https://github.com/danielbohannon/danielbohannon.github.io/blob/master/Invoke-CradleCrafter%20Screenshot.png)
 
 Introduction
 ------------
