@@ -1,4 +1,4 @@
-Invoke-CradleCrafter v1.0
+Invoke-CradleCrafter v1.1
 ===============
 
 ![Invoke-CradleCrafter Screenshot](https://github.com/danielbohannon/danielbohannon.github.io/blob/master/Invoke-CradleCrafter%20Screenshot.png)
@@ -82,3 +82,12 @@ Invoke-CradleCrafter is released under the Apache 2.0 license.
 Release Notes
 -------------
 v1.0 - 2017-04-28 x33fcon (Gdynia, Poland): PUBLIC Release of Invoke-CradleCrafter.
+
+v1.1 - 2017-05-11 NOPcon (Istanbul, Turkey):
+Added 3 new memory-based cradles:
+- PsComMsXml
+- PsInlineCSharp
+- PsCompiledCSharp
+Added 2 disk-based cradles:
+- PsBits
+- BITSAdmin
