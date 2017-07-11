@@ -65,7 +65,7 @@ techniques that this framework currently supports.
 
 Installation
 ------------
-The source code for Invoke-Obfuscation is hosted at Github, and you may
+The source code for Invoke-CradleCrafter is hosted at Github, and you may
 download, fork and review it from this repository
 (https://github.com/danielbohannon/Invoke-CradleCrafter). Please report issues
 or feature requests through Github's bug tracker associated with this project.
