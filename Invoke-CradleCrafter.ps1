@@ -1,6 +1,6 @@
 #   This file is part of Invoke-CradleCrafter.
 #
-#   Copyright 2017 Daniel Bohannon <@danielhbohannon>
+#   Copyright 2018 Daniel Bohannon <@danielhbohannon>
 #         while at Mandiant <http://www.mandiant.com>
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
@@ -214,12 +214,14 @@ http://www.danielbohannon.com
     $MenuLevel_Memory                            += , @($LineSpacing, 'PSCOMMSXML      ' , 'PS <COM> object + <MsXml2.ServerXmlHttp>')
     $MenuLevel_Memory                            += , @($LineSpacing, 'PSINLINECSHARP  ' , 'PS <Add-Type> + Inline <CSharp>')
     $MenuLevel_Memory                            += , @($LineSpacing, 'PSCOMPILEDCSHARP' , '.NET <[Reflection.Assembly]::Load> Pre-Compiled <CSharp>')
+    $MenuLevel_Memory                            += , @($LineSpacing, 'CERTUTIL        ' , '<Certutil.exe> + -ping Argument')
 
     # Main\Disk Menu.
     $MenuLevel_Disk                               =   @()
     $MenuLevel_Disk                              += , @($LineSpacing, 'PSWEBFILE     ' , 'PS Net.WebClient + <DownloadFile> method')
     $MenuLevel_Disk                              += , @($LineSpacing, 'PSBITS        ' , 'PS <Start-BitsTransfer> (PS3.0+)')
     $MenuLevel_Disk                              += , @($LineSpacing, 'BITSADMIN     ' , '<BITSAdmin>.exe')
+    $MenuLevel_Disk                              += , @($LineSpacing, 'CERTUTIL      ' , '<Certutil.exe> + -urlcache Argument')
 
     # Set values for Show-MenuContext to be displayed when each new cradle type is entered into.
     $MenuContext_Memory_PsWebString               =   @()
@@ -1053,7 +1055,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComIE                  += , @('Compatibility','PS 2.0+')
     $MenuContext_Memory_PsComIE                  += , @('Dependencies ','Iexplore.exe')
     $MenuContext_Memory_PsComIE                  += , @('Footprint    ','.URL file and cached file(s) on disk.')
-    $MenuContext_Memory_PsComIE                  += , @('Indicators   ',@('svchost.exe spawns iexplore.exe','iexplore.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
+    $MenuContext_Memory_PsComIE                  += , @('Indicators   ',@('powershell.exe loads ieproxy.dll','svchost.exe spawns iexplore.exe','iexplore.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComIE                  += , @('Artifacts    ',@('C:\Windows\Prefetch\IEXPLORE.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
     $MenuContext_Memory_PsComIE                  += , @('Note         ','The file extension of input URL may affect rendering in IE (depending on version) that can lead to errors. E.g. a payload of extension .html will not render newlines properly with Invoke-CradleCrafter''s InnerText and OuterText methods, but if you manually change to InnerHtml then it will work fine.')
 
@@ -1376,6 +1378,49 @@ http://www.danielbohannon.com
     $MenuLevel_Memory_PsCompiledCSharp_All       += , @($LineSpacing, '1' , "Execute <ALL> Token obfuscation techniques (random order)"    , @('Out-Cradle', $CradleType, 'All', 1))
     
     # Set values for Show-MenuContext to be displayed when each new cradle type is entered into.
+    $MenuContext_Memory_Certutil                  =   @()
+    $MenuContext_Memory_Certutil                 += , @('Name         ','Certutil')
+    $MenuContext_Memory_Certutil                 += , @('Description  ','PowerShell leveraging certutil.exe to download payload as string')
+    $MenuContext_Memory_Certutil                 += , @('Compatibility','PS 2.0+')
+    $MenuContext_Memory_Certutil                 += , @('Dependencies ','Certutil.exe')
+    $MenuContext_Memory_Certutil                 += , @('Footprint    ','Entirely memory-based')
+    $MenuContext_Memory_Certutil                 += , @('Indicators   ',@('powershell.exe spawns certutil.exe','certutil.exe makes network connection instead of powershell.exe'))
+    $MenuContext_Memory_Certutil                 += , @('Artifacts    ',@('C:\Windows\Prefetch\CERTUTIL.EXE-********.pf','AppCompat Cache'))
+    
+    $CradleType = 17
+        
+    $MenuLevel_Memory_Certutil                    =   @()
+    $MenuLevel_Memory_Certutil                   += , @($LineSpacing, 'Rearrange' , '<Rearrange> syntax structure')
+    $MenuLevel_Memory_Certutil                   += , @($LineSpacing, 'Cmdlet   ' , '<Select-Object>')
+    $MenuLevel_Memory_Certutil                   += , @($LineSpacing, 'Invoke   ' , '<IEX>')
+    $MenuLevel_Memory_Certutil                   += , @($LineSpacing, 'All      ' , 'Select <All> choices from above (random order)')
+
+    $MenuLevel_Memory_Certutil_Rearrange          =   @()
+    $MenuLevel_Memory_Certutil_Rearrange         += , @($LineSpacing, '1' , "Default         --> <Default> syntax arrangement"             , @('Out-Cradle', $CradleType, 'Rearrange', 1))
+    $MenuLevel_Memory_Certutil_Rearrange         += , @($LineSpacing, '2' , "Multi-Variable  --> <Logical> variable names and syntax"      , @('Out-Cradle', $CradleType, 'Rearrange', 2))
+    $MenuLevel_Memory_Certutil_Rearrange         += , @($LineSpacing, '3' , "Random-Variable --> <Random> variable names and syntax"       , @('Out-Cradle', $CradleType, 'Rearrange', 3))
+
+    $MenuLevel_Memory_Certutil_Cmdlet             =   @()
+    $MenuLevel_Memory_Certutil_Cmdlet            += , @($LineSpacing, '1' , "PS Select-Object --> <Select-Object>"                         , @('Out-Cradle', $CradleType, 'SelectObject', 1))
+    $MenuLevel_Memory_Certutil_Cmdlet            += , @($LineSpacing, '2' , "PS Get-Command   --> <Get-Command>/<GCM>"                     , @('Out-Cradle', $CradleType, 'SelectObject', 2))
+    $MenuLevel_Memory_Certutil_Cmdlet            += , @($LineSpacing, '3' , "PS1.0 GetCmdlet  --> <`$ExecutionContext>..."                 , @('Out-Cradle', $CradleType, 'SelectObject', 3))
+    
+    $MenuLevel_Memory_Certutil_Invoke             =   @()
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '1 ' , "No Invoke         --> For <testing> download sans IEX"       , @('Out-Cradle', $CradleType, 'Invoke', 1))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '2 ' , "PS IEX            --> <IEX/Invoke-Expression>"               , @('Out-Cradle', $CradleType, 'Invoke', 2))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '3 ' , "PS Get-Alias      --> <Get-Alias>/<GAL>"                     , @('Out-Cradle', $CradleType, 'Invoke', 3))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '4 ' , "PS Get-Command    --> <Get-Command>/<GCM>"                   , @('Out-Cradle', $CradleType, 'Invoke', 4))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '5 ' , "PS1.0 GetCmdlet   --> <`$ExecutionContext>..."               , @('Out-Cradle', $CradleType, 'Invoke', 5))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '6 ' , "PS1.0 Invoke      --> <`$ExecutionContext>..."               , @('Out-Cradle', $CradleType, 'Invoke', 6))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '7 ' , "ScriptBlock+ICM   --> <ICM/Invoke-Command/.Invoke()>"        , @('Out-Cradle', $CradleType, 'Invoke', 7))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '8 ' , "PS Runspace       --> <[PowerShell]::Create()> (StdOut)"     , @('Out-Cradle', $CradleType, 'Invoke', 8))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '9 ' , "Concatenated IEX  --> <.(`$env:ComSpec[4,15,25]-Join'')>"    , @('Out-Cradle', $CradleType, 'Invoke', 9))
+    $MenuLevel_Memory_Certutil_Invoke            += , @($LineSpacing, '10' , "Invoke-AsWorkflow --> <Invoke-AsWorkflow> (PS3.0+)"          , @('Out-Cradle', $CradleType, 'Invoke', 10))
+
+    $MenuLevel_Memory_Certutil_All                =   @()
+    $MenuLevel_Memory_Certutil_All               += , @($LineSpacing, '1' , "Execute <ALL> Token obfuscation techniques (random order)"    , @('Out-Cradle', $CradleType, 'All', 1))
+    
+    # Set values for Show-MenuContext to be displayed when each new cradle type is entered into.
     $MenuContext_Disk_PsWebFile                   =   @()
     $MenuContext_Disk_PsWebFile                  += , @('Name         ','PsWebFile')
     $MenuContext_Disk_PsWebFile                  += , @('Description  ','Downloads the resource with the specified URI to a local file')
@@ -1529,6 +1574,45 @@ http://www.danielbohannon.com
     $MenuLevel_Disk_BITSAdmin_All                 =   @()
     $MenuLevel_Disk_BITSAdmin_All                += , @($LineSpacing, '1' , "Execute <ALL> Token obfuscation techniques (random order)"    , @('Out-Cradle', $CradleType, 'All', 1))
     
+    # Set values for Show-MenuContext to be displayed when each new cradle type is entered into.
+    $MenuContext_Disk_Certutil                    =   @()
+    $MenuContext_Disk_Certutil                   += , @('Name         ','Certutil')
+    $MenuContext_Disk_Certutil                   += , @('Description  ',@('Downloads the resource to a local file via certutil.exe','Works in CLM (Constrained Language Mode)'))
+    $MenuContext_Disk_Certutil                   += , @('Compatibility','PS 2.0+')
+    $MenuContext_Disk_Certutil                   += , @('Dependencies ','Certutil.exe')
+    $MenuContext_Disk_Certutil                   += , @('Footprint    ','Disk-based')
+    $MenuContext_Disk_Certutil                   += , @('Indicators   ',@('powershell.exe spawns certutil.exe','certutil.exe makes network connection instead of powershell.exe'))
+    $MenuContext_Disk_Certutil                   += , @('Artifacts    ',@('C:\Windows\Prefetch\CERTUTIL.EXE-********.pf','AppCompat Cache'))
+    
+    $CradleType = 23
+        
+    $MenuLevel_Disk_Certutil                      =   @()
+    $MenuLevel_Disk_Certutil                     += , @($LineSpacing, 'Rearrange' , '<Rearrange> syntax structure')
+    $MenuLevel_Disk_Certutil                     += , @($LineSpacing, 'Invoke   ' , '<IEX>')
+    $MenuLevel_Disk_Certutil                     += , @($LineSpacing, 'All      ' , 'Select <All> choices from above (random order)')
+
+    $MenuLevel_Disk_Certutil_Rearrange            =   @()
+    $MenuLevel_Disk_Certutil_Rearrange           += , @($LineSpacing, '1' , "Default         --> <Default> syntax arrangement"             , @('Out-Cradle', $CradleType, 'Rearrange', 1))
+    $MenuLevel_Disk_Certutil_Rearrange           += , @($LineSpacing, '2' , "Multi-Variable  --> <Logical> variable names and syntax"      , @('Out-Cradle', $CradleType, 'Rearrange', 2))
+    $MenuLevel_Disk_Certutil_Rearrange           += , @($LineSpacing, '3' , "Random-Variable --> <Random> variable names and syntax"       , @('Out-Cradle', $CradleType, 'Rearrange', 3))
+
+    $MenuLevel_Disk_Certutil_Invoke               =   @()
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '1 ' , "No Invoke         --> For <testing> download sans IEX"       , @('Out-Cradle', $CradleType, 'Invoke', 1))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '2 ' , "PS IEX            --> <IEX/Invoke-Expression>"               , @('Out-Cradle', $CradleType, 'Invoke', 2))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '3 ' , "PS Get-Alias      --> <Get-Alias>/<GAL>"                     , @('Out-Cradle', $CradleType, 'Invoke', 3))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '4 ' , "PS Get-Command    --> <Get-Command>/<GCM>"                   , @('Out-Cradle', $CradleType, 'Invoke', 4))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '5 ' , "PS1.0 GetCmdlet   --> <`$ExecutionContext>..."               , @('Out-Cradle', $CradleType, 'Invoke', 5))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '6 ' , "PS1.0 Invoke      --> <`$ExecutionContext>..."               , @('Out-Cradle', $CradleType, 'Invoke', 6))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '7 ' , "ScriptBlock+ICM   --> <ICM/Invoke-Command/.Invoke()>"        , @('Out-Cradle', $CradleType, 'Invoke', 7))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '8 ' , "PS Runspace       --> <[PowerShell]::Create()> (StdOut)"     , @('Out-Cradle', $CradleType, 'Invoke', 8))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '9 ' , "Concatenated IEX  --> <.(`$env:ComSpec[4,15,25]-Join'')>"    , @('Out-Cradle', $CradleType, 'Invoke', 9))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '10' , "Invoke-AsWorkflow --> <Invoke-AsWorkflow> (PS3.0+)"          , @('Out-Cradle', $CradleType, 'Invoke', 10))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '11' , "Dot-Source        --> <.> ./file.ps1"                        , @('Out-Cradle', $CradleType, 'Invoke', 11))
+    $MenuLevel_Disk_Certutil_Invoke              += , @($LineSpacing, '12' , "Import-Module     --> <Import-Module>/<IPMO> (StdOut)"       , @('Out-Cradle', $CradleType, 'Invoke', 12))
+    
+    $MenuLevel_Disk_Certutil_All                  =   @()
+    $MenuLevel_Disk_Certutil_All                 += , @($LineSpacing, '1' , "Execute <ALL> Token obfuscation techniques (random order)"    , @('Out-Cradle', $CradleType, 'All', 1))
+
     # Input options to display non-interactive menus or perform actions.
     $TutorialInputOptions         = @(@('tutorial')                            , "<Tutorial> of how to use this tool        `t  ")
     $MenuInputOptionsShowHelp     = @(@('help','get-help','?','-?','/?','menu'), "Show this <Help> Menu                     `t  ")
@@ -1699,9 +1783,9 @@ http://www.danielbohannon.com
             $UserResponse = 'quit'
         }
         
+        # Output ObfuscatedCradle to stdout and exit since -Command was specified and -NoExit was not specified.
         If(($UserResponse -eq 'quit') -AND $CliWasSpecified -AND !$NoExitWasSpecified)
         {
-            Write-Host "`n`nOutputting ObfuscatedCradle to stdout and exiting since -Command was specified and -NoExit was not specified:`n"
             Write-Output $Script:ObfuscatedCradle.Trim("`n")
             $UserInput = 'quit'
         }
@@ -1812,6 +1896,7 @@ http://www.danielbohannon.com
                 $BreadCrumbOCD += , @('pscommsxml'       , 'PsComMsXml')
                 $BreadCrumbOCD += , @('psinlinecsharp'   , 'PsInlineCSharp')
                 $BreadCrumbOCD += , @('pscompiledcsharp' , 'PsCompiledCSharp')
+                $BreadCrumbOCD += , @('certutil'         , 'Certutil')
                 $BreadCrumbOCD += , @('pswebfile'        , 'PsWebFile')
                 $BreadCrumbOCD += , @('psbits'           , 'PsBits')
                 $BreadCrumbOCD += , @('bitsadmin'        , 'BITSAdmin')
@@ -2551,7 +2636,7 @@ http://www.danielbohannon.com
                         Write-Host "<Invoke-CradleCrafter Result>" -NoNewline -ForegroundColor Magenta
                         Write-Host "}" -ForegroundColor Green
 
-C:\Windows\Notepad.exe $OutputFilePath
+                        If($Env:windir) { C:\Windows\Notepad.exe $OutputFilePath }
                     }
                     Else
                     {

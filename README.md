@@ -91,3 +91,9 @@ Added 3 new memory-based cradles:
 Added 2 disk-based cradles:
 - PsBits
 - BITSAdmin
+
+v1.1.1 - 2018-01-02:
+Added 1 new memory-based cradle:
+- Certutil -ping
+Added 1 new disk-based cradle:
+- Certutil -urlcache
