@@ -709,7 +709,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsSendKeys               += , @('Footprint    ','.LNK file and cached file(s) on disk')
     $MenuContext_Memory_PsSendKeys               += , @('Indicators   ',@('notepad.exe and svchost.exe make network connections','notepad.exe loads C:\Windows\System32\winhttp.dll','notepad.exe loads C:\Windows\System32\wininet.dll','rundll32.exe command line arguments contain DavSetCookie with URI'))
     $MenuContext_Memory_PsSendKeys               += , @('Artifacts    ',@('C:\Windows\Prefetch\NOTEPAD.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.LNK file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-    $MenuContext_Memory_PsSendKeys               += , @('User-Agent   ','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *')
+    $MenuContext_Memory_PsSendKeys               += , @('User-Agent   ',@('Microsoft-WebDAV-MiniRedir/*','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *'))
     $MenuContext_Memory_PsSendKeys               += , @('Note         ',@('If running PS2.0 then you must define -STA/-ST for clipboard usage','If cradle fails then reset Notepad coordinates by executing:',"@('iWindowPosX','iWindowPosY') | ForEach-Object {Set-ItemProperty HKCU:\Software\Microsoft\Notepad `$_ 100}"))
 
     $CradleType = 10
@@ -832,7 +832,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComWord                += , @('Footprint    ','.URL file and cached file(s) on disk.')
     $MenuContext_Memory_PsComWord                += , @('Indicators   ',@('svchost.exe spawns winword.exe','winword.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComWord                += , @('Artifacts    ',@('C:\Windows\Prefetch\WINWORD.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-    $MenuContext_Memory_PsComWord                += , @('User-Agent   ','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *')
+    $MenuContext_Memory_PsComWord                += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Esistence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
 
     $CradleType = 11
 
@@ -935,7 +935,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComExcel               += , @('Footprint    ','.URL file and cached file(s) on disk')
     $MenuContext_Memory_PsComExcel               += , @('Indicators   ',@('svchost.exe spawns excel.exe','excel.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComExcel               += , @('Artifacts    ',@('C:\Windows\Prefetch\EXCEL.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-    $MenuContext_Memory_PsComExcel               += , @('User-Agent   ','Mozilla/* (compatible; MSIE *; Windows NT *; Win*; x*; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *')
+    $MenuContext_Memory_PsComExcel               += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Esistence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
     
     $CradleType = 12
 
