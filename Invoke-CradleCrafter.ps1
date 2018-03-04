@@ -832,7 +832,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComWord                += , @('Footprint    ','.URL file and cached file(s) on disk.')
     $MenuContext_Memory_PsComWord                += , @('Indicators   ',@('svchost.exe spawns winword.exe','winword.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComWord                += , @('Artifacts    ',@('C:\Windows\Prefetch\WINWORD.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-    $MenuContext_Memory_PsComWord                += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Esistence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
+    $MenuContext_Memory_PsComWord                += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Existence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
 
     $CradleType = 11
 
@@ -935,7 +935,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComExcel               += , @('Footprint    ','.URL file and cached file(s) on disk')
     $MenuContext_Memory_PsComExcel               += , @('Indicators   ',@('svchost.exe spawns excel.exe','excel.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComExcel               += , @('Artifacts    ',@('C:\Windows\Prefetch\EXCEL.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-    $MenuContext_Memory_PsComExcel               += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Esistence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
+    $MenuContext_Memory_PsComExcel               += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Existence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
     
     $CradleType = 12
 
