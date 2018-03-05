@@ -400,7 +400,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebString             += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_NetWebString             += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebString             += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    $MenuContext_Memory_NetWebString             = , @('User-Agent   ',@('None','UA generally trivial to change'))
+    $MenuContext_Memory_NetWebString             += , @('User-Agent   ',@('None','UA generally trivial to change'))
 
     $CradleType = 4
         
@@ -449,7 +449,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebData               += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_NetWebData               += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebData               += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    $MenuContext_Memory_NetWebData               = , @('User-Agent   ',@('None','UA generally trivial to change'))
+    $MenuContext_Memory_NetWebData               += , @('User-Agent   ',@('None','UA generally trivial to change'))
 
     $CradleType = 5
         
@@ -511,7 +511,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebOpenRead           += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_NetWebOpenRead           += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebOpenRead           += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    $MenuContext_Memory_NetWebOpenRead           = , @('User-Agent   ',@('None','UA generally trivial to change'))
+    $MenuContext_Memory_NetWebOpenRead           += , @('User-Agent   ',@('None','UA generally trivial to change'))
 
     $CradleType = 6
         
