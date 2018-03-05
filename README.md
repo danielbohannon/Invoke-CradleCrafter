@@ -97,3 +97,7 @@ Added 1 new memory-based cradle:
 - Certutil -ping
 Added 1 new disk-based cradle:
 - Certutil -urlcache
+
+v1.1.2 - 2018-02-05:
+Added User-Agent strings to cradle info
+- Thanks for the PR, @mgreen27!
