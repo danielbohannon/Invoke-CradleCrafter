@@ -232,7 +232,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsWebString              += , @('Footprint    ','Entirely memory-based')
     $MenuContext_Memory_PsWebString              += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsWebString              += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_PsWebString              += , @('User-Agent   ',@('None','UA generally trivial to change'))
+
     $CradleType = 1
         
     $MenuLevel_Memory_PsWebString                 =   @()
@@ -281,6 +282,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsWebData                += , @('Footprint    ','Entirely memory-based')
     $MenuContext_Memory_PsWebData                += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsWebData                += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
+    $MenuContext_Memory_PsWebData                += , @('User-Agent   ',@('None','UA generally trivial to change'))
     
     $CradleType = 2
         
@@ -343,7 +345,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsWebOpenRead            += , @('Footprint    ','Entirely memory-based')
     $MenuContext_Memory_PsWebOpenRead            += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsWebOpenRead            += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_PsWebOpenRead            += , @('User-Agent   ',@('None','UA generally trivial to change')) 
+
     $CradleType = 3
         
     $MenuLevel_Memory_PsWebOpenRead               =   @()
@@ -397,7 +400,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebString             += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_NetWebString             += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebString             += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_NetWebString             = , @('User-Agent   ',@('None','UA generally trivial to change'))
+
     $CradleType = 4
         
     $MenuLevel_Memory_NetWebString                =   @()
@@ -445,7 +449,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebData               += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_NetWebData               += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebData               += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_NetWebData               = , @('User-Agent   ',@('None','UA generally trivial to change'))
+
     $CradleType = 5
         
     $MenuLevel_Memory_NetWebData                  =   @()
@@ -506,7 +511,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebOpenRead           += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_NetWebOpenRead           += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebOpenRead           += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_NetWebOpenRead           = , @('User-Agent   ',@('None','UA generally trivial to change'))
+
     $CradleType = 6
         
     $MenuLevel_Memory_NetWebOpenRead              =   @()
@@ -559,7 +565,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsWebRequest             += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_PsWebRequest             += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsWebRequest             += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_PsWebRequest             += , @('User-Agent   ','Mozilla/* (Windows NT; Windows NT *; *) WindowsPowerShell/*')
+
     $CradleType = 7
         
     $MenuLevel_Memory_PsWebRequest                =   @()
@@ -610,7 +617,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsRestMethod             += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry'))
     $MenuContext_Memory_PsRestMethod             += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsRestMethod             += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_PsRestMethod             += , @('User-Agent   ','Mozilla/* (Windows NT; Windows NT *; *) WindowsPowerShell/*')
+
     $CradleType = 8
         
     $MenuLevel_Memory_PsRestMethod                =   @()
@@ -653,7 +661,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_NetWebRequest            += , @('Footprint    ',@('Entirely memory-based','No New-Object cmdlet module log entry (if Stream\3 is selected)'))
     $MenuContext_Memory_NetWebRequest            += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_NetWebRequest            += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Memory_NetWebRequest            += , @('User-Agent   ',@('None','UA generally trivial to change'))
+
     $CradleType = 9
         
     $MenuLevel_Memory_NetWebRequest               =   @()
@@ -700,6 +709,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsSendKeys               += , @('Footprint    ','.LNK file and cached file(s) on disk')
     $MenuContext_Memory_PsSendKeys               += , @('Indicators   ',@('notepad.exe and svchost.exe make network connections','notepad.exe loads C:\Windows\System32\winhttp.dll','notepad.exe loads C:\Windows\System32\wininet.dll','rundll32.exe command line arguments contain DavSetCookie with URI'))
     $MenuContext_Memory_PsSendKeys               += , @('Artifacts    ',@('C:\Windows\Prefetch\NOTEPAD.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.LNK file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
+    $MenuContext_Memory_PsSendKeys               += , @('User-Agent   ',@('Microsoft-WebDAV-MiniRedir/*','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *'))
     $MenuContext_Memory_PsSendKeys               += , @('Note         ',@('If running PS2.0 then you must define -STA/-ST for clipboard usage','If cradle fails then reset Notepad coordinates by executing:',"@('iWindowPosX','iWindowPosY') | ForEach-Object {Set-ItemProperty HKCU:\Software\Microsoft\Notepad `$_ 100}"))
 
     $CradleType = 10
@@ -822,7 +832,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComWord                += , @('Footprint    ','.URL file and cached file(s) on disk.')
     $MenuContext_Memory_PsComWord                += , @('Indicators   ',@('svchost.exe spawns winword.exe','winword.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComWord                += , @('Artifacts    ',@('C:\Windows\Prefetch\WINWORD.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-    
+    $MenuContext_Memory_PsComWord                += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Existence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
+
     $CradleType = 11
 
     $MenuLevel_Memory_PsComWord                   =   @()
@@ -924,7 +935,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComExcel               += , @('Footprint    ','.URL file and cached file(s) on disk')
     $MenuContext_Memory_PsComExcel               += , @('Indicators   ',@('svchost.exe spawns excel.exe','excel.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComExcel               += , @('Artifacts    ',@('C:\Windows\Prefetch\EXCEL.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
-
+    $MenuContext_Memory_PsComExcel               += , @('User-Agent   ',@('Microsoft Office Word *','Microsoft Office Existence Discovery','Mozilla/* (compatible; MSIE *; Windows NT *; Win64; x64; Trident/*; .NET* .NET CLR *; ms-office; MSOffice *'))
+    
     $CradleType = 12
 
     $MenuLevel_Memory_PsComExcel                  =   @()
@@ -1057,6 +1069,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComIE                  += , @('Footprint    ','.URL file and cached file(s) on disk.')
     $MenuContext_Memory_PsComIE                  += , @('Indicators   ',@('powershell.exe loads ieproxy.dll','svchost.exe spawns iexplore.exe','iexplore.exe makes network connection instead of powershell.exe','A/V can flag on cached file(s) on disk'))
     $MenuContext_Memory_PsComIE                  += , @('Artifacts    ',@('C:\Windows\Prefetch\IEXPLORE.EXE-********.pf','\AppData\Roaming\Microsoft\Windows\Recent\*.URL file','\AppData\*\(Temporary Internet Files|INetCache)\*.txt'))
+    $MenuContext_Memory_PsComIE                  += , @('User-Agent   ','Mozilla/* (Windows NT *; *; Trident/*; rv:*) like Gecko    (tested on IE11)')
     $MenuContext_Memory_PsComIE                  += , @('Note         ','The file extension of input URL may affect rendering in IE (depending on version) that can lead to errors. E.g. a payload of extension .html will not render newlines properly with Invoke-CradleCrafter''s InnerText and OuterText methods, but if you manually change to InnerHtml then it will work fine.')
 
     $CradleType = 13
@@ -1170,6 +1183,8 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComMsXml               += , @('Footprint    ','Entirely memory-based')
     $MenuContext_Memory_PsComMsXml               += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsComMsXml               += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
+    $MenuContext_Memory_PsComMsXml               += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
+    $MenuContext_Memory_PsComMsXml               += , @('User-Agent   ','Mozilla/* (compatible; Win32; WinHttp.WinHttpRequest.*')
 
     $CradleType = 14
 
@@ -1238,6 +1253,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsInlineCSharp           += , @('Footprint    ',@('Net.WebClient downloadstring method used but does not show up in PS logs','Optional CSharp PS Runspace invocation option available'))
     $MenuContext_Memory_PsInlineCSharp           += , @('Indicators   ',@('powershell.exe spawns csc.exe which spawns cvtres.exe','Temporary CSharp compilation files (.cs, .cmdline, etc.)','powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsInlineCSharp           += , @('Artifacts    ',@('AppCompat Cache','C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
+    $MenuContext_Memory_PsInlineCSharp           += , @('User-Agent   ',@('None','UA generally trivial to change'))
     $MenuContext_Memory_PsInlineCSharp           += , @('Note         ','Invoked in Start-Job in Invoke-CradleCrafter since running Add-Type on same class name but updated content will fail in current powershell instance')
 
     $CradleType = 15
@@ -1313,6 +1329,7 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsCompiledCSharp         += , @('Footprint    ','Entirely memory-based.')
     $MenuContext_Memory_PsCompiledCSharp         += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsCompiledCSharp         += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
+    $MenuContext_Memory_PsCompiledCSharp         += , @('User-Agent   ',@('None','UA generally trivial to change'))
     $MenuContext_Memory_PsCompiledCSharp         += , @('Note         ','invoked in Start-Job in Invoke-CradleCrafter since running Add-Type on same class name but updated content will fail in current powershell instance')
 
     $CradleType = 16
@@ -1429,7 +1446,8 @@ http://www.danielbohannon.com
     $MenuContext_Disk_PsWebFile                  += , @('Footprint    ','Disk-based')
     $MenuContext_Disk_PsWebFile                  += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Disk_PsWebFile                  += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    
+    $MenuContext_Disk_PsWebFile                  += , @('User-Agent   ',@('None','UA generally trivial to change'))
+
     $CradleType = 20
         
     $MenuLevel_Disk_PsWebFile                     =   @()
@@ -1480,6 +1498,7 @@ http://www.danielbohannon.com
     $MenuContext_Disk_PsBits                     += , @('Footprint    ','Disk-based')
     $MenuContext_Disk_PsBits                     += , @('Indicators   ',@('BITS event log','powershell.exe loads C:\Windows\System32\BitsProxy.dll'))
     $MenuContext_Disk_PsBits                     += , @('Artifacts    ',@('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Bits-Client%4Operational.evtx','C:\Windows\Prefetch\POWERSHELL.EXE-********.pf'))
+    $MenuContext_Disk_PsBits                     += , @('User-Agent   ','Microsoft BITS/*')
 
     $CradleType = 21
         
@@ -1536,6 +1555,7 @@ http://www.danielbohannon.com
     $MenuContext_Disk_BITSAdmin                  += , @('Footprint    ','Disk-based')
     $MenuContext_Disk_BITSAdmin                  += , @('Indicators   ',@('BITS Event Log','powershell.exe spawns BITSAdmin.exe'))
     $MenuContext_Disk_BITSAdmin                  += , @('Artifacts    ',@('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Bits-Client%4Operational.evtx','AppCompat Cache'))
+    $MenuContext_Disk_BITSAdmin                  += , @('User-Agent   ','Microsoft BITS/*')
 
     $CradleType = 22
         
@@ -1583,7 +1603,8 @@ http://www.danielbohannon.com
     $MenuContext_Disk_Certutil                   += , @('Footprint    ','Disk-based')
     $MenuContext_Disk_Certutil                   += , @('Indicators   ',@('powershell.exe spawns certutil.exe','certutil.exe makes network connection instead of powershell.exe'))
     $MenuContext_Disk_Certutil                   += , @('Artifacts    ',@('C:\Windows\Prefetch\CERTUTIL.EXE-********.pf','AppCompat Cache'))
-    
+    $MenuContext_Disk_Certutil                   += , @('User-Agent   ',@('CertUtil URL Agent','Microsoft-CryptoAPI/*'))
+
     $CradleType = 23
         
     $MenuLevel_Disk_Certutil                      =   @()
