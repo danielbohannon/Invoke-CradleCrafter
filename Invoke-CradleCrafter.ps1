@@ -1183,7 +1183,6 @@ http://www.danielbohannon.com
     $MenuContext_Memory_PsComMsXml               += , @('Footprint    ','Entirely memory-based')
     $MenuContext_Memory_PsComMsXml               += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsComMsXml               += , @('Artifacts    ',@('C:\Windows\Prefetch\POWERSHELL.EXE-********.pf','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASMANCS','HKLM\SOFTWARE\Microsoft\Tracing\powershell_RASAPI32'))
-    $MenuContext_Memory_PsComMsXml               += , @('Indicators   ',@('powershell.exe loads C:\Windows\System32\rasman.dll','powershell.exe loads C:\Windows\System32\rasapi32.dll'))
     $MenuContext_Memory_PsComMsXml               += , @('User-Agent   ','Mozilla/* (compatible; Win32; WinHttp.WinHttpRequest.*')
 
     $CradleType = 14
